@@ -164,7 +164,6 @@ export default {
       getCovidData() {
         let scope = this;
         const req  = new Request();
-        //req.route  = '/cases';
         req.callbackSuccess = (response) => {
           response = response.features;
           Object.keys(response).forEach(function(eachLineData) {
@@ -184,10 +183,8 @@ export default {
       },
       getDataFromCountry() {
         if (this.countryName == '') return false;
-        //this.countryName = this.countryName.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => {return str.toUpperCase();});
         let scope = this;
         const req  = new Request();
-        //req.route  =  '/cases?country=' + this.countryName;
         req.route  =  "Country_Region%20%3D%20'" + this.countryName.toUpperCase() + "'";
         req.callbackSuccess = (response) => {
           scope.countryFinded = response.features[0] ? true : false;
